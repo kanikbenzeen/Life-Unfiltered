@@ -1,0 +1,104 @@
+.hero {
+    height: 500px;
+    width: auto;
+}
+
+.thero{
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 25%;
+}
+
+.title{
+    text-align: start;
+    letter-spacing: -0.1rem;
+    font-family: auto;
+    font-size: 3.5rem;
+    position: fixed;
+    background-color: transparent;
+    font-family: system-ui;
+    top: 80%;
+    opacity: 0.9;
+    cursor: pointer;
+    z-index: +1;
+    color: #272727;
+}
+
+.date{
+    top: 90%;
+    color: #272727;
+    position: fixed;
+    z-index: -1;
+}
+
+.descbox{
+    position: relative;
+    width: 70%;
+    height: auto;
+    top: 100%;
+}
+
+.desc{
+    font-size: 1rem;
+    line-height: 26px;
+    font-family: system-ui;
+}
+
+/* li{
+    padding-left: 2px;
+} */
+
+ul li{
+    list-style: none;
+    padding-left: 40px;
+}
+
+ul li::before{
+    color: #272727;
+    opacity: 0.8;
+    content: "•";
+    display: inline-block;
+    font-family: times;
+    font-size: 28px;
+    line-height: 0;
+    margin-left: -24px;
+    position: relative;
+    top: 3px;
+    width: 24px;
+}
+
+.parllex{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+    position: relative;
+    top: 58rem;
+    padding-bottom: 50px;
+    padding-top: 170px;
+    box-shadow: rgb(0 0 0 / 20%) 0px -10px 20px 0px;
+}
+
+.footer-a {
+    background-color: white;
+    position: relative;
+    height: 35rem;
+    width: 100%;
+    top: 33rem;
+    margin-top: 25rem;
+}
+
+.move{
+    position: absolute;
+    top: 60.55rem;
+}
+
+.footer-b {
+    background-color: #272727;
+    position: relative;
+    height: 20rem;
+    width: 100%;
+    top: 33rem;
+}
