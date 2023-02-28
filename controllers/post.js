@@ -75,6 +75,10 @@ const post = async (req,res) =>{
     res.render('post',)
 }
 
+const login = async (req,res) =>{
+    res.render('login',)
+}
+
 const howTo = async (req,res) =>{
    let howToData
    let category = req.body.category
@@ -126,6 +130,7 @@ module.exports = {
     home, 
     howTo, 
     ifItIs ,
-    post
+    post,
+    login
 }
 

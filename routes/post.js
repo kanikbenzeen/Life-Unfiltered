@@ -18,6 +18,10 @@ router.get("/post", (req, res)=>{
     postControllers.post(req,res)
 })
 
+router.get("/login", (req, res)=>{
+    postControllers.login(req,res)
+})
+
 router.post("api/v1/howto",(req,res)=>{
     postControllers.howTo(req,res)
 })
