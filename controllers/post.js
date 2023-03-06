@@ -13,21 +13,22 @@ const addPost = async (req, res) =>{
 //  let  category = req.body.category
 //   let image = req.body.image
 
-   try {
-    connectDB()
+//    try {
+//     connectDB()
 
-    const post = await postModel.create({})
-    await post.save()
-    res.status(200).json({
-        succeed:true,
-        message:"added successfully"
-    })
-   } catch (error) {
-     res.status(500).json({
-        succeed:false,
-        message:error.message
-    })
-   }
+//     const post = await postModel.create({})
+//     await post.save()
+//     res.status(200).json({
+//         succeed:true,
+//         message:"added successfully"
+//     })
+//    } catch (error) {
+//      res.status(500).json({
+//         succeed:false,
+//         message:error.message
+//     })
+//    }
+res.render('addPost',)
 
 }
 

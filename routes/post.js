@@ -18,6 +18,10 @@ router.get("/post", (req, res)=>{
     postControllers.post(req,res)
 })
 
+router.get("/addpost", (req, res)=>{
+    postControllers.addPost(req,res)
+})
+
 router.get("/login", (req, res)=>{
     postControllers.login(req,res)
 })
