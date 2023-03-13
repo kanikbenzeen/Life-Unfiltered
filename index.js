@@ -21,7 +21,7 @@ hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 
 
 
-app.use('/auth',validateUser)
+app.use('/',validateUser)
 app.use('/', router)
 
 app.listen(PORT, ()=>{
