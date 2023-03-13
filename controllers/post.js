@@ -144,9 +144,21 @@ const ifItIs = async (req,res) =>{
  }
  
 const post = async (req,res, url) =>{
-       console.log
-    res.render('post',)
+    // console.log('url')
+    // console.log(url)
+      
+    connectDB()
+    const data = await postModel.findOne({category:url})
+
+    console.log('data')
+    console.log(data)
+
+
+
+    res.render('post',{data})
 }
+
+
 
 
 module.exports = {

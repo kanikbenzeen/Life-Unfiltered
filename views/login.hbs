@@ -8,9 +8,11 @@
             <div class="form">
                 <h1 class="titlex">Log In</h1>
                 <img src="../images/pngegg.png" class="imgb">
-                    <input placeholder="Email" type="text" class="input" required="">
-                    <input placeholder="Password" type="password" class="pass" required="">
+                <form method="post" action="/user">
+                    <input placeholder="Email" type="text" class="input" required="" name="email">
+                    <input placeholder="Password" type="password" class="pass" required="" name="password">
                     <button class="btn" type="submit">Submit</button>
+                 </form>   
                 <div class="descbox">
                     <p class="desc"><b>Life Unfiltered</b> is a blog site that shares honest and raw stories about life, covering topics such as mental health, relationships, career, and personal growth, with the aim of inspiring and empowering readers to embrace their true selves.</p>
                 </div>
