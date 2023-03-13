@@ -4,35 +4,49 @@ const userModel =  require("../models/user.js")
 
 
 const validateUser = async (req, res) =>{
-    let  data
+    console.log(req.body)
+    // let  data
+    let name = req.body.name
+    let password = req.body.password
     try {
-
-        data = {
-        name:name,
-        password :password
-        }
         connectDB();
-        await userModel.find(data, (data)=>{    
-            if(data){
+        // data = {
+        // name:name,
+        // password :password
+        // }
+        
+        await (await userModel.find(name, password)).
+        then((data)=>{
+             if(data){
                 res.status(200).json({
                     success:true,
                     message:"User logged successfully",
                     data:data
                 })
-            }
+             }
         })
+         
+
+               
+            
+       
     
 
     } catch (error) {
         res.status(500).json({
             success:false,
-            message:"unathorize",
+            message:error.message,
             data:data
         })
     }
-
+    res.render('login',)
 }  
 
 
 
+
 module.exports = {validateUser}
+
+
+
+

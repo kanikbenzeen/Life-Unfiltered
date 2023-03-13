@@ -16,9 +16,14 @@
 
 {{> slider }}
 
-{{> cards }}
+<div class="cards">
+{{#each data}}
+{{> cards data=this }}
+{{/each}}
+</div>
+<div class="clear">
+</div>
 
-<div class="clear"></div>
 
 {{> footer }}
 

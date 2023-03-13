@@ -1,41 +1,66 @@
 const connectDB =  require("../database/db.js")
 const postModel =  require("../models/post.js")
-var express = require('express');
-var app = express();
+const express = require('express');
+const multer = require("multer")
+const app = express();
 const bodyParser = require("body-parser"); 
 app.use(bodyParser.json());
+const fs =  require('fs')
 
 
 
-const addPost = async (req, res) =>{
-//  let  title = req.body.title
-//  let  desc = req.body.desc
-//  let  category = req.body.category
-//   let image = req.body.image
+//storage
 
+const Storage = multer.diskStorage({
+    destination:"images",
+    filename:(req, file, cb)=>{
+         cb(null, file.originalname)
+    }
+})
+
+const Uploads = multer({
+    storage:Storage, 
+}).single("image")
+
+const postForm = async (req, res) =>{
+//  console.log(req.file)
+// console.log('here i am')
+//  console.log(req.body)
+//  console.log(res.body)
 //    try {
-//     connectDB()
+    connectDB()
 
-//     const post = await postModel.create({})
-//     await post.save()
+    const post = await postModel.create({
+        category:req.body.category,
+        title:req.body.title,
+        desc:req.body.desc,
+        // image:{
+        //     data:fs.readFileSync("images/" +req.file.filename),
+        //     contentType:"image/png"
+        // }
+ })
+    await post.save()
 //     res.status(200).json({
 //         succeed:true,
 //         message:"added successfully"
 //     })
+   
 //    } catch (error) {
 //      res.status(500).json({
 //         succeed:false,
 //         message:error.message
 //     })
 //    }
-res.render('addPost',)
-
 }
+
+const addPost = async (req, res) =>{
+       res.render('addPost',)
+    }
 
 const deletePost = async (req, res) =>{
     try {
         connectDB()
-        await postModel.findOneAndDelete({seq:2})
+        await postModel.findOneAndDelete({seq})
    
        res.status(200).json({
         success: true,
@@ -50,34 +75,28 @@ const deletePost = async (req, res) =>{
 }
 
 const home = async (req, res) =>{
-    let data
-    // try {
-    //     connectDB()
-    //    data = await postModel.find({})
-    //     console.log(data)
-
-    //     res.status(200).json({
-    //         success:true,
-    //         message:"Data queried Successfully",
-    //         data:data
-    //     })
+    let data;
+    try {
+        connectDB()
+       data = await postModel.find({})
+    //    console.log(data)
+        // const nData =  Object.assign({}, data)
+        // console.log(nData)
+        // res.status(200).json({
+        //     success:true,
+        //     message:"Data queried Successfully",
+        //     data:data
+        // })
         
-    // } catch (error) {
-    //     res.status(500).json({
-    //         success:false,
-    //         message:error.message,
-    //         data:data
-    //     })
-    // }
-    res.render('home',)
-}
-
-const post = async (req,res) =>{
-    res.render('post',)
-}
-
-const login = async (req,res) =>{
-    res.render('login',)
+    } catch (error) {
+        res.status(500).json({
+            success:false,
+            message:error.message,
+            data:data
+        })
+    }
+    // console.log(data);
+    res.render('home', {data:data})
 }
 
 const howTo = async (req,res) =>{
@@ -123,6 +142,11 @@ const ifItIs = async (req,res) =>{
      }
      
  }
+ 
+const post = async (req,res, url) =>{
+       console.log
+    res.render('post',)
+}
 
 
 module.exports = {
@@ -131,7 +155,8 @@ module.exports = {
     home, 
     howTo, 
     ifItIs ,
-    post,
-    login
+    Uploads,
+    postForm,
+    post
 }
 

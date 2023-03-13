@@ -1,12 +1,25 @@
 const express = require("express")
 const postControllers = require("../controllers/post.js")
+  
+
 
 const router = express.Router()
 
-router.post("api/v1/addpost",(req,res)=>{
+router.post("/postform",postControllers.Uploads,(req,res)=>{
+    postControllers.postForm(req,res)
+})
+
+router.get("/addpost",postControllers.Uploads,(req,res)=>{
     postControllers.addPost(req,res)
 })
-router.post("api/v1/deletepost",(req,res)=>{
+
+router.get('/post/:id', (req, res)=>{
+    const url = req.params.id
+    console.log(url)
+    postControllers.post(req,res,url)
+})
+
+router.post("/deletepost",(req,res)=>{
     postControllers.deletePost(req,res)
 })
 
@@ -14,23 +27,11 @@ router.get("/", (req, res)=>{
     postControllers.home(req,res)
 })
 
-router.get("/post", (req, res)=>{
-    postControllers.post(req,res)
-})
-
-router.get("/addpost", (req, res)=>{
-    postControllers.addPost(req,res)
-})
-
-router.get("/login", (req, res)=>{
-    postControllers.login(req,res)
-})
-
-router.post("api/v1/howto",(req,res)=>{
+router.post("/howto",(req,res)=>{
     postControllers.howTo(req,res)
 })
 
-router.post("api/v1/ifitis",(req,res)=>{
+router.post("/ifitis",(req,res)=>{
     postControllers.ifItIs(req,res)
 })
 

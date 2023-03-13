@@ -3,25 +3,25 @@
 
 <div class="postcard">
 	<h1 class="topic">Add Post</h1>
-	<form action="">
-		<input placeholder="Title" type="text" class="title" required="">
-		<textarea placeholder="Description" class="desc"></textarea>
+	<form method="post" action="/postForm"  id="addpost">
+		<input placeholder="Title" type="text" class="title" required="" name="title">
+		<textarea placeholder="Description" class="desc" name="desc"></textarea>
 		<div class="flex">
-			<input type="file" id="images" accept="image/*" required>
+			<input type="file" id="images" accept="image/*" required name="image">
 			<div class="select-dropdown">
-				<select>
-					<option value="Option 1">Select Category</option>
-					<option value="Option 2">Creativity</option>
-					<option value="Option 3">Health</option>
-					<option value="Option 4">How To</option>
-					<option value="Option 5">Lifestyle</option>
-					<option value="Option 6">Music</option>
-					<option value="Option 7">Travel</option>
-					<option value="Option 8">What If</option>
+				<select name="category">
+					<option value="Option 1" style="display: none;">Select Category</option>
+					<option value="Creativity">Creativity</option>
+					<option value="Health">Health</option>
+					<option value="How-To">How To</option>
+					<option value="Lifestyle">Lifestyle</option>
+					<option value="Music">Music</option>
+					<option value="Travel">Travel</option>
+					<option value="What-If">What If</option>
 				</select>
 			</div>
 		</div>
-		<button>
+		<button type="submit"  id="postdata">
 			<span>POST NOW</span>
 		</button>		
 	</form>
