@@ -79,8 +79,9 @@ const home = async (req, res) =>{
     // try {
         connectDB()
        data = await postModel.find({})
-       let data1= data
-       console.log(data)
+       console.log(data);
+    //    let data1= data
+    //    console.log(data)
       
     //    console.log(data)
         // const nData =  Object.assign({}, data)
