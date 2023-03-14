@@ -5,14 +5,13 @@ const multer = require("multer")
 const app = express();
 const bodyParser = require("body-parser"); 
 app.use(bodyParser.json());
-const fs =  require('fs')
-
-
+const fs =  require('fs-extra')
+const path = require('path')
 
 //storage
 
 const Storage = multer.diskStorage({
-    destination:"images",
+    destination:"public/images/",
     filename:(req, file, cb)=>{
          cb(null, file.originalname)
     }
@@ -25,15 +24,16 @@ const Uploads = multer({
 const postForm = async (req, res) =>{
 //  console.log(req.file)
 // console.log('here i am')
-//  console.log(req.body)
+//  console.log(req)
 //  console.log(res.body)
 //    try {
     connectDB()
-
+    
     const post = await postModel.create({
         category:req.body.category,
         title:req.body.title,
         desc:req.body.desc,
+        image:req.file.filename
         // image:{
         //     data:fs.readFileSync("images/" +req.file.filename),
         //     contentType:"image/png"
@@ -76,9 +76,12 @@ const deletePost = async (req, res) =>{
 
 const home = async (req, res) =>{
     let data;
-    try {
+    // try {
         connectDB()
        data = await postModel.find({})
+       let data1= data
+       console.log(data)
+      
     //    console.log(data)
         // const nData =  Object.assign({}, data)
         // console.log(nData)
@@ -87,14 +90,24 @@ const home = async (req, res) =>{
         //     message:"Data queried Successfully",
         //     data:data
         // })
+     
+            // console.log(res.title)
+      
+                // console.log(res.image.data)
+          
+                // let bufferObj = Buffer.from(res.image.data, "utf8"); 
+                // let base64String = bufferObj.toString("base64");
+                // console.log(base64String)
+      
+ 
         
-    } catch (error) {
-        res.status(500).json({
-            success:false,
-            message:error.message,
-            data:data
-        })
-    }
+    // } catch (error) {
+    //     res.status(500).json({
+    //         success:false,
+    //         message:error.message,
+    //         data:data
+    //     })
+    // }
     // console.log(data);
     res.render('home', {data:data})
 }
@@ -152,12 +165,11 @@ const post = async (req,res, url) =>{
 
     console.log('data')
     console.log(data)
-
+    
 
 
     res.render('post',{data})
 }
-
 
 
 

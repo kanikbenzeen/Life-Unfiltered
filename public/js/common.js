@@ -90,3 +90,80 @@ prevSlide.addEventListener("click", function () {
 
 
 
+
+
+// my changes
+
+
+//Selector
+const $ = (selector) => document.querySelector(selector);
+
+//Buttons
+const buttons = document.getElementsByClassName('btn');
+
+//Command method
+const command = (role = null, value = null) => {
+		if(role) document.execCommand(role, false, value);
+};
+
+//Method
+for(const btn of buttons){
+	btn.addEventListener('click', function(){
+		const role = this.dataset['role'],
+								value = this.dataset['value'] || null;
+		command(role, value);
+	});
+};
+
+//Dark Mode
+const toggle = $('#toggle'),
+						rich = $('#rich-text');
+
+toggle.addEventListener('change', () => {
+	rich.classList.toggle('dark');
+});
+
+//Colors
+const btn_color = $('#color'),
+						input_color = $('#input-color'),
+						btn_bg = $('#bg'),
+						input_bg = $('#input-bg');
+
+//Pop up
+btn_color.addEventListener('click', function(e){
+	if(e.target != input_color)
+	this.querySelector('.pop-up').classList.toggle('active');
+});
+
+btn_bg.addEventListener('click', function(e){
+	if(e.target != input_bg)
+	this.querySelector('.pop-up').classList.toggle('active');
+});
+
+//Color method
+input_color.addEventListener('input', function(){
+	const color = this.value;
+	command('foreColor', color);
+});
+
+//Bg color method
+input_bg.addEventListener('input', function(){
+	const bg = this.value;
+	command('backColor', bg);
+});
+
+//Link
+const link = $('#link'),
+						unlink = $('#unlink');
+
+//Link method
+link.addEventListener('click', () => {
+	const url = prompt('Digite uma URL válida', 'https://');
+	if(url && url != 'https://' && url != 'http://') command('createLink', url);
+});
+
+//Unlink method
+unlink.addEventListener('click', () => {
+	command('unlink');
+});
+

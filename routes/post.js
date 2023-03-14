@@ -9,7 +9,7 @@ router.post("/postform",postControllers.Uploads,(req,res)=>{
     postControllers.postForm(req,res)
 })
 
-router.get("/addpost",postControllers.Uploads,(req,res)=>{
+router.get("/addpost",(req,res)=>{
     postControllers.addPost(req,res)
 })
 

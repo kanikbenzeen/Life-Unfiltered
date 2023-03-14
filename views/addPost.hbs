@@ -3,11 +3,11 @@
 
 <div class="postcard">
 	<h1 class="topic">Add Post</h1>
-	<form method="post" action="/postForm"  id="addpost">
+	<form method="post" action="/postForm"  id="addpost" enctype="multipart/form-data">
 		<input placeholder="Title" type="text" class="title" required="" name="title">
 		<textarea placeholder="Description" class="desc" name="desc"></textarea>
 		<div class="flex">
-			<input type="file" id="images" accept="image/*" required name="image">
+			<input type="file" id="images" accept="image/*" required name="image" >
 			<div class="select-dropdown">
 				<select name="category">
 					<option value="Option 1" style="display: none;">Select Category</option>
@@ -26,3 +26,4 @@
 		</button>		
 	</form>
 </div>
+
