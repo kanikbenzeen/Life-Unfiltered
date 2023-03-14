@@ -5,7 +5,6 @@ const multer = require("multer")
 const app = express();
 const bodyParser = require("body-parser"); 
 app.use(bodyParser.json());
-const fs =  require('fs-extra')
 const path = require('path')
 
 //storage
