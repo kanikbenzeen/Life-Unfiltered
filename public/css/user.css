@@ -8,22 +8,23 @@ body{
 }
 
 .title{
-    background-color: transparent;
-    font-size: 35px;
-    margin: 10px;
-    border: none;
-    color: white;
-    font-weight: 100;
-    font-family: system-ui;
-    display: flex;
-    justify-content: center;
+  background-color: transparent;
+  font-size: 35px;
+  margin-top: 25px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-family: system-ui;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 5px;
 }
 
 .card{
     display: flex;
     justify-content: center;
     background-color: #232228;
-    top: 23%;
+    top: 25%;
     position: absolute;
     height: 50%;
     width: 30%;

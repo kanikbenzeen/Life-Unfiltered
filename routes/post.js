@@ -13,6 +13,10 @@ router.get("/addpost",postControllers.Uploads,(req,res)=>{
     postControllers.addPost(req,res)
 })
 
+router.get("/contact",postControllers.Uploads,(req,res)=>{
+    postControllers.contact(req,res)
+})
+
 router.get('/post/:id', (req, res)=>{
     const url = req.params.id
     console.log(url)
