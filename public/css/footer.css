@@ -56,3 +56,150 @@
     text-decoration-color: #ece6db;
     font-family: monospace;
 }
+
+.h2{
+    font-size: x-large;
+    color: white;
+    position: absolute;
+    margin-left: 14%;
+    margin-top: 2%;
+    font-family: monospace;
+    font-weight: 100;
+}
+
+.descbox{
+    position: absolute;
+    top: 25%;
+    left: 14%;
+    margin-top: 10px;
+    width: 30%;
+    height: 55%;
+}
+
+.desc{
+    padding: 0px;
+    padding-top: 0px;
+    font-family: system-ui;
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 14px;
+    color: white;
+}
+
+.contact{
+    height: 100%;
+    width: 40%;
+    margin-left: 42%;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 28%;
+    right: 15%;
+  }
+  
+  .input {
+    min-height: 50px;
+    width: 470px;
+    padding: 0 1rem;
+    color: #fff;
+    font-size: 15px;
+    border: 1px solid #5e4dcd;
+    border-radius: 6px 0 0 6px;
+    background-color: transparent;
+  }
+  
+  .button--submit {
+    min-height: 50px;
+    padding: 0.5em 1em;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    background-color: #5e4dcd;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30%;
+    transition: background-color .3s ease-in-out;
+  }
+  
+  .button--submit:hover {
+    background-color: #5e5dcd;
+  }
+  
+  .input:focus, .input:focus-visible {
+    border-color: #ffffff;
+    outline: none;
+  }
+
+  .req{
+    padding: 0px;
+    padding-top: 0px;
+    font-family: system-ui;
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .reqbox{
+    position: absolute;
+    top: 48%;
+    right: 14%;
+    margin: 13px;
+    width: 29%;
+  }
+
+  .social-menu ul{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    padding: 0;
+    /* margin-bottom: 9px; */
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+}
+
+.social-menu ul li{
+    list-style: none;
+    margin: 5px 0px;
+}
+
+.social-menu ul li .fab{
+    font-size: 30px;
+    line-height: 60px;
+    transition: .3s;
+    color: #ffffff;
+}
+
+.social-menu ul li .fab:hover{
+    color: #000000;
+}
+
+.social-menu ul li a{
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: transparent;
+    text-align: center;
+    transition: .6s;
+    /* box-shadow: 0 5px 4px rgba(0,0,0,.5); */
+}
+
+
+.social-menu ul li:nth-child(1) a:hover{
+    color: rgba(0, 0, 0, 0.829);
+}
+.social-menu ul li:nth-child(2) .fab:hover{
+    color: #E4405F;
+}
+.social-menu ul li:nth-child(3) .fab:hover{
+    color: #0077b5;
+}
+.social-menu ul li:nth-child(4) a:hover{
+    color: #000;
+}

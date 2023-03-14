@@ -40,6 +40,7 @@ const postForm = async (req, res) =>{
         // }
  })
     await post.save()
+    res.redirect('/')
 //     res.status(200).json({
 //         succeed:true,
 //         message:"added successfully"
@@ -171,6 +172,11 @@ const post = async (req,res, url) =>{
     res.render('post',{data})
 }
 
+const contact = async (req,res, url) =>{
+    res.render('contact')
+}
+
+
 
 
 module.exports = {
@@ -181,6 +187,7 @@ module.exports = {
     ifItIs ,
     Uploads,
     postForm,
-    post
+    post,
+    contact
 }
 
