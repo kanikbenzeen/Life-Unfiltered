@@ -5,8 +5,6 @@ const multer = require("multer")
 const app = express();
 const bodyParser = require("body-parser"); 
 app.use(bodyParser.json());
-const path = require('path')
-fs = require('fs');
 
 //storage
 
@@ -28,14 +26,11 @@ const postForm = async (req, res) =>{
 //  console.log(res.body)
 //    try {
     connectDB()
-    const data = req.file.filename;
-    const filePath = path.join("/public/images", req.file.filename);
-    fs.writeFileSync(filePath, JSON.stringify(data));
     const post = await postModel.create({
         category:req.body.category,
         title:req.body.title,
         desc:req.body.desc,
-        image:data
+        image:req.file.filename
         // image:{
         //     data:fs.readFileSync("images/" +req.file.filename),
         //     contentType:"image/png"
