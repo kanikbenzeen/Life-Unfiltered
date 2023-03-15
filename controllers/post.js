@@ -77,7 +77,7 @@ const home = async (req, res) =>{
     // try {
         connectDB()
        data = await postModel.find({})
-       console.log(data);
+    //    console.log(data);
     //    let data1= data
     //    console.log(data)
       
@@ -162,8 +162,8 @@ const post = async (req,res, url) =>{
     connectDB()
     const data = await postModel.findOne({category:url})
 
-    console.log('data')
-    console.log(data)
+    // console.log('data')
+    // console.log(data)
     
 
 
