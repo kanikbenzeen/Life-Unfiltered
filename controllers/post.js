@@ -29,7 +29,7 @@ const postForm = async (req, res) =>{
     const post = await postModel.create({
         category:req.body.category,
         title:req.body.title,
-        desc:req.body.desc,
+        desc:req.body.desc.replace(/(?:\r\n|\r|\n)/g, "<br>"),
         image:req.file.filename
         // image:{
         //     data:fs.readFileSync("images/" +req.file.filename),
@@ -157,10 +157,10 @@ const ifItIs = async (req,res) =>{
  
 const post = async (req,res, url) =>{
     // console.log('url')
-    // console.log(url)
+    //  console.log(url)
       
     connectDB()
-    const data = await postModel.findOne({category:url})
+    const data = await postModel.findOne({seq:url})
 
     // console.log('data')
     // console.log(data)
